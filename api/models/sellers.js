@@ -1,10 +1,11 @@
 var mongoose = require("mongoose");
-const { stringify } = require("querystring");
+
 
 const vendure  = mongoose.model("vends", {
 	user_name: String,
 	email: String,
     adress:String,
+	password:String,
 });
 
 
