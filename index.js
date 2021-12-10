@@ -11,8 +11,9 @@ var app = express();
 app.use(bodyParser());
 app.use(cors());
 
-app.post('/login', login)
 app.post('/signup', signup)
+app.post('/login',login)
+
 
 mongoose
 .connect(
