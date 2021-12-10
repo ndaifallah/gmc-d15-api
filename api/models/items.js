@@ -12,3 +12,5 @@ let Item= mongoose.model("item",{
         ref:sellers
     }
 })
+
+module.exports= Item
