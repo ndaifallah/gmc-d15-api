@@ -15,7 +15,7 @@ let signup = async(req,res)=>{
                     user_name3:user_name2,
                     password3:password2
                 });
-                awaitdoc.save();
+                await doc.save();
                 res.status(200).json({status:"inscrit avec succes "});
             }catch(err){
             res.status(300).json({status:"une faille pour cree dsl"});

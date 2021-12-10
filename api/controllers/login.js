@@ -7,12 +7,12 @@ const Login =async (req,resp)=>{
     console.log(req.body)
     Sellers.find({user_name:user_name,password:password},(err,sellers)=>{
         if(err==null,sellers.lenght>0){
-            let seller= sellers[0]
-            let tokendata={
+            let seller= sellers[0];
+             tokendata={
                 id: seller._id,
-                user_name: seller.user_name
+                user_name: seller.user_name,
             }
-            let token= jwt.sign(tokendata, "azerty")
+            let token= jwt.sign(tokendata, "azerty");
             console.log(token)
             resp.status(200).json({
                 status:'success',
