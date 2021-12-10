@@ -4,10 +4,13 @@ var mongoose = require("mongoose");
 var cors = require("cors");
 var jwt = require("jsonwebtoken");
 var app = express();
-
+var signup = require('./api/controllers/signup')
+var login= require('./api/controllers/login')
 
 app.use(bodyParser());
 app.use(cors());
+
+app.post('/signup', signup)
 
 
 mongoose
