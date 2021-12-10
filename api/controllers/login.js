@@ -5,7 +5,9 @@ const Login =async (req,resp)=>{
     let user_name= req.body.user_name || ""
     let password = req.body.password|| ""
     console.log(req.body)
+    console.log(Sellers)
     Sellers.find({user_name:user_name,password:password},(err,sellers)=>{
+        console.log(sellers)
         if(err==null,sellers.lenght>0){
             let seller= sellers[0]
             let tokendata={
@@ -19,6 +21,7 @@ const Login =async (req,resp)=>{
                 token: token
             })
         }else{
+            
             resp.status(300).send("failed to login")
         }
     })
