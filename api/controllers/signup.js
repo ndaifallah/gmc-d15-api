@@ -8,14 +8,15 @@ let signup = async(req,res)=>{
 
     vendure.find({user_name:user_name2},async(err,resultat)=>{
         if(err==null && resultat.length>0 ){
+            console.log(resultat)
             res.status(300).json({status:"ce vendure la est deja cree don desole"});
         }else {
             try {
                 let doc=new vendure({
-                    user_name3:user_name2,
-                    password3:password2
+                    user_name:user_name2,
+                    password:password2
                 });
-                awaitdoc.save();
+                await doc.save();
                 res.status(200).json({status:"inscrit avec succes "});
             }catch(err){
             res.status(300).json({status:"une faille pour cree dsl"});

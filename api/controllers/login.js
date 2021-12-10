@@ -6,7 +6,9 @@ const Login =async (req,resp)=>{
     let password = req.body.password|| ""
     console.log(req.body)
     Sellers.find({user_name:user_name,password:password},(err,sellers)=>{
-        if(err==null,sellers.lenght>0){
+        console.log(err==null ,sellers.length >0)
+        if(err == null && sellers.lenght > 0){
+            console.log("in if block")
             let seller= sellers[0]
             let tokendata={
                 id: seller._id,
