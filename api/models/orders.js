@@ -1,13 +1,17 @@
 var mongoose = require('mongoose');
+var items = require('./items')
 
-const commandes = mongoose.model('orders',{
+const Commandes = mongoose.model('orders',{
     nom : String,
     prenom : String,
     adresse : String,
-    produits : String,
+    produits :{
+        type: mongoose.Types.ObjectId,
+        ref: items,
+    },
     adresseclient : String,
     date : Date,
     status: String,
 });
 
-module.exports = commandes 
+module.exports = Commandes 
