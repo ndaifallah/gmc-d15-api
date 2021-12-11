@@ -7,13 +7,13 @@ let getorders=(req,resp)=>{
         resp.status(300).send("Token not sent")
         console.log(token)
     }else{
-        try{
-            let decoded_token= jwt.verify(token, "azerty")
-            console.log(decoded_token)
-            orders.find({produits:{sellers}})
-        }catch(e){
+        // try{
+        //     let decoded_token= jwt.verify(token, "azerty")
+        //     console.log(decoded_token)
+        //     orders.find({produits:{sellers}})
+        // }catch(e){
 
-        }
+        // }
     }
 
 }
