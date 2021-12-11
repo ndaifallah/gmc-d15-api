@@ -9,6 +9,8 @@ var order= require('./api/controllers/order')
 var orderlist= require('./api/controllers/orderlist')
 var filter = require('./api/controllers/filter')
 var app = express();
+var additem = require('./api/controllers/additem')
+var getitems = require('./api/controllers/itemlist')
 
 
 app.use(bodyParser());
@@ -17,7 +19,10 @@ app.get('/filtrage',filter)
 app.post('/signup', signup)
 app.post('/login',login)
 app.post('/order', order)
+app.post('/additem', additem)
 app.get('/getorders', orderlist)
+app.get('/getitems',getitems)
+
 
 
 mongoose
