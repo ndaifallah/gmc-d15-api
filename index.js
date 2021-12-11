@@ -12,6 +12,10 @@ var app = express();
 var additem = require('./api/controllers/additem')
 var getitems = require('./api/controllers/itemlist')
 
+const multer  = require('multer')
+const upload = multer({ dest: 'uploads/' })
+
+
 
 app.use(bodyParser());
 app.use(cors());
@@ -19,7 +23,7 @@ app.get('/filtrage',filter)
 app.post('/signup', signup)
 app.post('/login',login)
 app.post('/order', order)
-app.post('/additem', additem)
+app.post('/additem', upload.single("image") ,additem)
 app.get('/getorders', orderlist)
 app.get('/getitems',getitems)
 
@@ -32,6 +36,8 @@ mongoose
 .then((db) => {
     console.log("Database connected");
 })
-.catch((err) => {});
+.catch((err) => {
+    console.log(err)
+});
 
 app.listen(780);

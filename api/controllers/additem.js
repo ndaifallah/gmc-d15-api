@@ -1,10 +1,27 @@
 var item = require('../models/items');
 var jwt = require('jsonwebtoken')
+var fs = require('fs');
+
+const renameFileToOriginal = (file, original) => {
+    return new Promise((resolve, reject) => {
+        fs.rename(original, "uploads/" + file, function (err) {
+            console.log(file, original)
+            if (err) reject(err);
+            resolve(original)
+        });
+    });
+}
 
 
 
 const AddItem = async (req, resp)=>{
     try{
+        console.log(req.body)
+        let originalName = req.file.originalname;
+        let name = req.file.path;
+
+        await renameFileToOriginal(originalName, name);
+
         let token = req.header('AuthToken');
         let itemname2 = req.body.itemname
         let price2 = req.body.price;
