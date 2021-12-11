@@ -19,6 +19,7 @@ const AddItem = async (req, resp)=>{
         let user_info = jwt.verify(token, 'azerty');
         let doc = new item({
             itemname: itemname2,
+            user: user_info.user_id,
             price: price2,
             gender: gender2,
             size: size2,
@@ -30,7 +31,7 @@ const AddItem = async (req, resp)=>{
         resp.send('ok');
     }catch(err){
         console.log(err);
-        resp.status(300).json({status:'Auth not authorized'})
+        resp.status(300).json({status:'try not working'})
     }
 };
 module.exports=AddItem;

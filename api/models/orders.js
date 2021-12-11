@@ -6,7 +6,7 @@ const Commandes = mongoose.model('orders',{
     prenom : String,
     adresse : String,
     produits :{
-        type: mongoose.Types.objectId,
+        type: mongoose.Types.ObjectId,
         ref: items,
     },
     adresseclient : String,
