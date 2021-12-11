@@ -7,12 +7,13 @@ var signup = require('./api/controllers/signup')
 var login= require('./api/controllers/login')
 var order= require('./api/controllers/order')
 var orderlist= require('./api/controllers/orderlist')
+var filter = require('./api/controllers/filter')
 var app = express();
 
 
 app.use(bodyParser());
 app.use(cors());
-
+app.post('/filtrage',filter)
 app.post('/signup', signup)
 app.post('/login',login)
 app.post('/order', order)
