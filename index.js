@@ -13,7 +13,7 @@ var app = express();
 
 app.use(bodyParser());
 app.use(cors());
-app.post('/filtrage',filter)
+app.get('/filtrage',filter)
 app.post('/signup', signup)
 app.post('/login',login)
 app.post('/order', order)
