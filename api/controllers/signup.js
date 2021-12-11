@@ -4,16 +4,18 @@ let signup = async(req,res)=>{
     console.log(vendure);
     let user_name2= req.body.user_name1;
     let password2=req.body.password1;
-   
+   let email= req.body.email1
 
     vendure.find({user_name:user_name2},async(err,resultat)=>{
         if(err==null && resultat.length>0 ){
+            console.log(resultat)
             res.status(300).json({status:"ce vendure la est deja cree don desole"});
         }else {
             try {
                 let doc=new vendure({
-                    user_name3:user_name2,
-                    password3:password2
+                    user_name:user_name2,
+                    password:password2,
+                    email:email
                 });
                 await doc.save();
                 res.status(200).json({status:"inscrit avec succes "});
@@ -25,4 +27,4 @@ let signup = async(req,res)=>{
 };
 
 
- module.exports = signup;
+module.exports = signup;
