@@ -12,9 +12,9 @@ const Login =async (req,resp)=>{
             let seller= sellers[0]
             let tokendata={
                 id: seller._id,
-                user_name: seller.user_name
+                user_name: seller.user_name,
             }
-            let token= jwt.sign(tokendata, "azerty")
+            let token= jwt.sign(tokendata, "azerty");
             console.log(token)
             resp.status(200).json({
                 status:'success',

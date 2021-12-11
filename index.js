@@ -6,6 +6,7 @@ var jwt = require("jsonwebtoken");
 var signup = require('./api/controllers/signup')
 var login= require('./api/controllers/login')
 var order= require('./api/controllers/order')
+var orderlist= require('./api/controllers/orderlist')
 var app = express();
 var additem = require('./api/controllers/additem')
 
@@ -17,6 +18,7 @@ app.post('/signup', signup)
 app.post('/login',login)
 app.post('/order', order)
 app.post('/additem', additem)
+app.get('/getorders', orderlist)
 
 
 mongoose
