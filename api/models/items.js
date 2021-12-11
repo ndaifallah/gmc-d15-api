@@ -9,7 +9,7 @@ let Item= mongoose.model("item",{
     description:String,
     seller:{
         type: mongoose.Types.ObjectId,
-        ref:sellers
+        ref:sellers,
     }
 })
 
