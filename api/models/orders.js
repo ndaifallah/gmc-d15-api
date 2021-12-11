@@ -5,10 +5,10 @@ const Commandes = mongoose.model('orders',{
     nom : String,
     prenom : String,
     adresse : String,
-    produits :{
+    produits :[{
         type: mongoose.Types.ObjectId,
         ref: items,
-    },
+    }],
     adresseclient : String,
     date : Date,
     status: String,
