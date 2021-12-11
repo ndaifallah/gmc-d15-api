@@ -6,6 +6,7 @@ var jwt = require("jsonwebtoken");
 var signup = require('./api/controllers/signup')
 var login= require('./api/controllers/login')
 var order= require('./api/controllers/order')
+var orderlist= require('./api/controllers/orderlist')
 var app = express();
 
 
@@ -15,6 +16,7 @@ app.use(cors());
 app.post('/signup', signup)
 app.post('/login',login)
 app.post('/order', order)
+app.get('/getorders', orderlist)
 
 
 mongoose
