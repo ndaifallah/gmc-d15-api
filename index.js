@@ -3,18 +3,20 @@ var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 var cors = require("cors");
 var jwt = require("jsonwebtoken");
-var signup = require('./api/controllers/signup');
-var login= require('./api/controllers/login');
-var getitems = require('./api/controllers/itemlist');
+var signup = require('./api/controllers/signup')
+var login= require('./api/controllers/login')
+var order= require('./api/controllers/order')
+var orderlist= require('./api/controllers/orderlist')
 var app = express();
 
 
 app.use(bodyParser());
 app.use(cors());
 
-app.post('/signup', signup);
-app.post('/login',login);
-app.get('/getitems',getitems);
+app.post('/signup', signup)
+app.post('/login',login)
+app.post('/order', order)
+app.get('/getorders', orderlist)
 
 
 mongoose
