@@ -11,6 +11,8 @@ var filter = require('./api/controllers/filter')
 var app = express();
 var additem = require('./api/controllers/additem')
 var getitems = require('./api/controllers/itemlist')
+var updatestatus= require('./api/controllers/updatestatus')
+var updatedesc= require('./api/controllers/updatedescription')
 
 const multer  = require('multer')
 const upload = multer({ dest: 'uploads/' })
@@ -26,6 +28,8 @@ app.post('/order', order)
 app.post('/additem', upload.single("image") ,additem)
 app.get('/getorders', orderlist)
 app.get('/getitems',getitems)
+app.put('/updatestatus', updatestatus)
+app.put('/updatedesc',updatedesc)
 
 
 

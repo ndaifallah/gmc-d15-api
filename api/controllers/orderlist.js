@@ -2,7 +2,7 @@ let orders= require('../models/orders')
 let items= require('../models/items')
 const { response } = require('express')
 let jwt= require('jsonwebtoken')
-const filter = require('./filter')
+
 
 let getorders=(req,resp)=>{
     let token= req.header("Authtoken")
@@ -22,10 +22,23 @@ let getorders=(req,resp)=>{
                         status:"error occured"
                     })
                 }else{
-                    console.log('in else block')
+                    console.log('in else block',result)
                     let newResult =result.filter((res)=>{
                         return res.vendeur._id==decoded_token.id
                     })
+                    // let newResult= result.filter((res)=>{
+                    //     let produits= res.produits
+                    //     let filter =produits.filter((prod)=>{
+                    //         console.log(prod.seller.password)
+                    //         let newProd= prod
+                    //         if(newProd.seller.password){
+                    //             delete newProd.seller["password"]
+                    //             console.log(newProd)
+                    //         }
+                    //         return newProd.seller._id==decoded_token.id
+                    //     })
+                    //     return filter
+                    // })
                     resp.status(200).json({
                         orders: newResult
                     })
