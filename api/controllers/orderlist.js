@@ -2,6 +2,7 @@ let orders= require('../models/orders')
 let items= require('../models/items')
 const { response } = require('express')
 let jwt= require('jsonwebtoken')
+const filter = require('./filter')
 
 let getorders=(req,resp)=>{
     let token= req.header("Authtoken")
@@ -11,8 +12,9 @@ let getorders=(req,resp)=>{
     }else{
         try{
             let decoded_token= jwt.verify(token, "azerty")
-            console.log(decoded_token)
-            orders.find({"produits.seller":decoded_token.id}).populate("produits").exec((err,result)=>{
+            console.log(decoded_token.id)
+            // {path:"produits",populate:{path:"seller"}}
+            orders.find().populate("produits").populate("vendeur","user_name").exec((err,result)=>{
                 console.log(result)
                 if(err!=null){
                     console.log('error not null')
@@ -21,6 +23,9 @@ let getorders=(req,resp)=>{
                     })
                 }else{
                     console.log('in else block')
+                    result.filter((res)=>{
+                        return res.vendeur._id=decoded_token.id
+                    })
                     resp.status(200).json({
                         orders: result
                     })

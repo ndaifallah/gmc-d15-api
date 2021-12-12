@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var items = require('./items')
+var sellers= require('./sellers')
 
 const Commandes = mongoose.model('orders',{
     nom : String,
@@ -9,6 +10,10 @@ const Commandes = mongoose.model('orders',{
         type: mongoose.Types.ObjectId,
         ref: items,
     }],
+    vendeur: {
+        type: mongoose.Types.ObjectId,
+        ref: sellers,
+    },
     adresseclient : String,
     date : Date,
     status: String,

@@ -6,6 +6,7 @@ let order= async(req,resp)=>{
     let nickname= req.body.nickname
     let address= req.body.address
     let products= req.body.products
+    let seller= req.body.vendeur
     try{
         console.log(orders.length)
         let doc= new orders({
@@ -13,6 +14,7 @@ let order= async(req,resp)=>{
         prenom : nickname,
         produits : products,
         adresseclient : address,
+        vendeur:seller,
         date : Date().now,
         status: "test status",
         })
