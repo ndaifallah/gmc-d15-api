@@ -23,11 +23,11 @@ let getorders=(req,resp)=>{
                     })
                 }else{
                     console.log('in else block')
-                    result.filter((res)=>{
-                        return res.vendeur._id=decoded_token.id
+                    let newResult =result.filter((res)=>{
+                        return res.vendeur._id==decoded_token.id
                     })
                     resp.status(200).json({
-                        orders: result
+                        orders: newResult
                     })
                 }
             })
