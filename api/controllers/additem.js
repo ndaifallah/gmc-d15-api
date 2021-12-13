@@ -42,7 +42,7 @@ const AddItem = async (req, resp)=>{
             size: size2,
             description: description2,
             seller: seller2,
-            image: file.path
+            image: `uploads/${originalName}`
         });
         await doc.save();
         resp.status(200);
