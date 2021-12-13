@@ -10,7 +10,8 @@ let Item= mongoose.model("item",{
     seller:{
         type: mongoose.Types.ObjectId,
         ref:sellers,
-    }
+    },
+    image: String
 })
 
 module.exports= Item
