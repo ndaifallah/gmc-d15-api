@@ -7,7 +7,7 @@ let filter = async(req,res)=>{
     let gender = req.query.gender || "";
     let size =req.query.size || "";
  try{
-   itemlist.find({price : {$lt:price2}},(err,filters)=>{
+   itemlist.find({price : {$lt:price2}, gender:gender, size: size},(err,filters)=>{
    
     if (err == null) {
         console.log(err)
