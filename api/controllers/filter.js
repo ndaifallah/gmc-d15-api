@@ -3,10 +3,11 @@ var itemlist =require('../models/items')
 
 let filter = async(req,res)=>{
 
-    let price2 = req.query.price1 || "";
-    let itemname2 = req.query.name1 || "";
+    let price2 = req.query.price || "";
+    let gender = req.query.gender || "";
+    let size =req.query.size || "";
  try{
-   itemlist.find({price:price2,itemname:itemname2},(err,filters)=>{
+   itemlist.find({price : {$lt:price2}},(err,filters)=>{
    
     if (err == null) {
         console.log(err)
